@@ -3,24 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sun Dragon Page</title>
+<title>Sun Dragon Media</title>
 
 <style>
 body {
   margin: 0;
   background: url("../../assets/backgrounds/bg1.jpg") no-repeat center center fixed;
   background-size: cover;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   color: white;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  backdrop-filter: blur(5px);
+  text-align: center;
+  padding-top: 40px;
 }
 
 button {
@@ -32,12 +28,20 @@ button {
   border-radius: 8px;
   background: rgba(0,0,0,0.7);
   color: white;
-  transition: 0.3s;
 }
 
 button:hover {
   background: gold;
   color: black;
+}
+
+.viewer {
+  margin-top: 20px;
+}
+
+img, video {
+  max-width: 90%;
+  border-radius: 10px;
 }
 </style>
 </head>
@@ -45,20 +49,29 @@ button:hover {
 <body>
 
 <div class="container">
-  <button onclick="loadMedia('image')">عرض الصور</button>
-  <button onclick="loadMedia('video')">عرض الفيديو</button>
-  <button onclick="loadMedia('qr')">عرض QR</button>
+  <h1>🔥 Sun Dragon Viewer</h1>
+
+  <button onclick="showImage()">صور</button>
+  <button onclick="showVideo()">فيديو</button>
+  <button onclick="showQR()">QR</button>
+
+  <div class="viewer" id="viewer"></div>
 </div>
 
 <script>
-function loadMedia(type){
-  if(type === 'image'){
-    alert("سيتم تحميل الصور من assets/images");
-  } else if(type === 'video'){
-    alert("سيتم تحميل الفيديو من assets/videos");
-  } else if(type === 'qr'){
-    alert("سيتم تحميل QR من assets/qr");
-  }
+function showImage(){
+  document.getElementById("viewer").innerHTML =
+    '<img src="../../assets/images/sample.jpg">';
+}
+
+function showVideo(){
+  document.getElementById("viewer").innerHTML =
+    '<video controls src="../../assets/videos/sample.mp4"></video>';
+}
+
+function showQR(){
+  document.getElementById("viewer").innerHTML =
+    '<img src="../../assets/qr/sample.png">';
 }
 </script>
 
