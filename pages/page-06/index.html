@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sun Dragon Page</title>
+<style>
+body {
+  margin:0;
+  background: url("assets/backgrounds/bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial;
+}
+.container {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  height:100vh;
+}
+button {
+  margin:10px;
+  padding:15px 25px;
+  font-size:18px;
+  cursor:pointer;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <button onclick="loadMedia('images')">Images</button>
+  <button onclick="loadMedia('videos')">Videos</button>
+  <button onclick="loadMedia('qr')">QR</button>
+</div>
+
+<script>
+function loadMedia(type){
+  alert("Load " + type + " from assets/" + type);
+}
+</script>
+</body>
+</html>

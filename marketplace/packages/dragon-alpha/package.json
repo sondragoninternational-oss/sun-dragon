@@ -1,0 +1,43 @@
+cat << 'EOF' > marketplace/packages/dragon-alpha/package.json
+{
+  "package_id": "dragon-alpha-001",
+  "name": "Sun Dragon Alpha Identity",
+  "category": "brand_identity",
+  "tier": "premium",
+
+  "price": {
+    "amount": 9000,
+    "currency": "USD"
+  },
+
+  "assets": {
+    "logos": [
+      "assets/logo/dragon-main.png",
+      "assets/logo/dragon-young.png",
+      "assets/logo/dragon-mature.png",
+      "assets/logo/dragon-elite.png"
+    ],
+    "qr": "SLS-Coin-Concept/qr/dragon-alpha.png",
+    "contract": "constitution/page-01.html",
+    "video": "SLS-Coin-Concept/video/dragon-alpha.mp4"
+  },
+
+  "identity": {
+    "type": "multi-stage brand system",
+    "age_segments": ["18-25", "25-35", "40+"],
+    "style": "luxury / elite / ceremonial"
+  },
+
+  "payment": {
+    "provider": "PayPal",
+    "link": "https://paypal.me/sundragon",
+    "status": "unpaid"
+  "security": { "encrypted": true, "access": "restricted", "verification": "required" },
+  },
+
+  "status": "draft",
+  "security": { "encrypted": true, "access": "restricted", "verification": "required" },
+  "created_at": "2026-03-20",
+  "updated_at": "2026-03-20"
+}
+EOF
