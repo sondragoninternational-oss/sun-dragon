@@ -1,29 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>Sun Dragon Main</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sun Dragon International</title>
+
 <style>
 body {
-  margin:0;
-  background: url("assets/backgrounds/bg.jpg") no-repeat center center fixed;
-  background-size: cover;
+    margin: 0;
+    font-family: Arial;
+    background: black;
+    color: white;
+    text-align: center;
 }
-.container {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  height:100vh;
-}
+
 h1 {
-  color:white;
-  font-size:40px;
+    margin-top: 30px;
+    font-size: 40px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 20px;
+}
+
+a {
+    display: block;
+    padding: 20px;
+    background: #111;
+    border: 1px solid #333;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+a:hover {
+    background: gold;
+    color: black;
 }
 </style>
 </head>
+
 <body>
-<div class="container">
-  <h1>Sun Dragon International</h1>
+
+<h1>🔥 Sun Dragon System</h1>
+
+<div class="grid">
+<a href="pages/page-01/index.html">Page 01</a>
+<a href="pages/page-02/index.html">Page 02</a>
+<a href="pages/page-03/index.html">Page 03</a>
+<a href="pages/page-04/index.html">Page 04</a>
+<a href="pages/page-05/index.html">Page 05</a>
+<a href="pages/page-06/index.html">Page 06</a>
+<a href="pages/page-07/index.html">Page 07</a>
+<a href="pages/page-08/index.html">Page 08</a>
+<a href="pages/page-09/index.html">Page 09</a>
+<a href="pages/page-10/index.html">Page 10</a>
 </div>
+
 </body>
 </html>
