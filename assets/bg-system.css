@@ -1,0 +1,17 @@
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Dynamic backgrounds */
+.bg-01 { background-image: url('../backgrounds/bg1.jpg'); }
+.bg-02 { background-image: url('../backgrounds/bg2.jpg'); }
+.bg-03 { background-image: url('../backgrounds/bg3.jpg'); }
+.bg-04 { background-image: url('../backgrounds/bg4.jpg'); }
+.bg-05 { background-image: url('../backgrounds/bg5.jpg'); }
+.bg-06 { background-image: url('../backgrounds/bg6.jpg'); }
+.bg-07 { background-image: url('../backgrounds/bg7.jpg'); }
+.bg-08 { background-image: url('../backgrounds/bg8.jpg'); }
+.bg-09 { background-image: url('../backgrounds/bg9.jpg'); }
+.bg-10 { background-image: url('../backgrounds/bg10.jpg'); }
