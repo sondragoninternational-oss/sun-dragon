@@ -2,7 +2,17 @@ async function loadPackage(manifestPath){
   const res = await fetch(manifestPath);
   const pkg = await res.json();
 
-  console.log("Loading Package:", pkg.name);
+  // تحقق الترخيص
+  const licenseRes = await fetch('licenses/pkg-001.json');
+  const license = await licenseRes.json();
+
+  const userKey = prompt("Enter License Key for " + pkg.name);
+  if(userKey !== license.licenseKey){
+    alert("Invalid License! Access Denied.");
+    return;
+  }
+
+  console.log("License Verified:", userKey);
 
   // preload assets
   pkg.assets.forEach(asset => {
