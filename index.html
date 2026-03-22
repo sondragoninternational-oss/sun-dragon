@@ -61,5 +61,10 @@ a:hover {
 <a href="pages/page-10/index.html">Page 10</a>
 </div>
 
+<script>
+if ("serviceWorker" in navigator) {
+ navigator.serviceWorker.register("/sun-dragon/service-worker.js");
+}
+</script>
 </body>
 </html>
