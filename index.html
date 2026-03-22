@@ -14,10 +14,6 @@ body {
   text-align: center;
 }
 
-h1 {
-  margin-top: 20px;
-}
-
 .nav {
   display: flex;
   flex-wrap: wrap;
@@ -47,24 +43,36 @@ button:hover {
 
 <body>
 
-<h1>🔥 Sun Dragon SPA</h1>
+<h1>🔥 Sun Dragon SPA+</h1>
 
 <div class="nav">
   <button onclick="loadPage('pages/page-01/index.html')">Page 1</button>
-  <button onclick="loadPage('pages/page-02/index.html')">Page 2</button>
-  <button onclick="loadPage('pages/page-03/index.html')">Page 3</button>
 </div>
 
 <div id="app">Loading...</div>
 
 <script>
-function loadPage(url){
-  fetch(url)
-    .then(res => res.text())
-    .then(html => {
-      const content = html.split("<body>")[1].split("</body>")[0];
-      document.getElementById("app").innerHTML = content;
-    });
+async function loadPage(url){
+  const res = await fetch(url);
+  const html = await res.text();
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, "text/html");
+
+  const app = document.getElementById("app");
+  app.innerHTML = doc.body.innerHTML;
+
+  // تشغيل السكربتات داخل الصفحة
+  const scripts = doc.querySelectorAll("script");
+  scripts.forEach(oldScript => {
+    const newScript = document.createElement("script");
+    if(oldScript.src){
+      newScript.src = oldScript.src;
+    } else {
+      newScript.textContent = oldScript.textContent;
+    }
+    document.body.appendChild(newScript);
+  });
 }
 
 loadPage('pages/page-01/index.html');
