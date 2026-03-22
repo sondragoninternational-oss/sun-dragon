@@ -1,5 +1,5 @@
 {
   "appId": "com.sundragon.app",
   "appName": "Sun Dragon",
-  "webDir": "."
+  "webDir": "www"
 }
