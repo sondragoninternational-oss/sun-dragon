@@ -1,10 +1,6 @@
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
+# سكربت تشغيل تلقائي للنظام التجاري
 cd ~/sun-dragon
-while true; do
-  if [[ -n $(git status --porcelain) ]]; then
-    git add .
-    git commit -m "Auto upload: $(date '+%Y-%m-%d %H:%M:%S')"
-    git push
-  fi
-  sleep 60
-done
+# تشغيل أي خدمة أو مراقبة ملفات، مثال رفع تلقائي
+# يمكن تعديل هذه الأوامر لتتوافق مع مشروعك
+nohup python3 -m http.server 8000 > ~/sun-dragon/server.log 2>&1 &
