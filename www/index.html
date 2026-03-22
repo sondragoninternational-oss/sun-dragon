@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sun Dragon System</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: black;
+  color: white;
+  text-align: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  background: #111;
+  color: white;
+}
+
+button:hover {
+  background: gold;
+  color: black;
+}
+
+#app {
+  margin-top: 20px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.loading {
+  opacity: 0.3;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🔥 Sun Dragon PRO</h1>
+
+<div class="nav">
+  <button onclick="loadPage('pages/page-01/index.html')">Page 1</button>
+</div>
+
+<div id="app">Loading...</div>
+
+<script>
+const cache = {};
+
+async function preload(url){
+  if(!cache[url]){
+    const res = await fetch(url);
+    cache[url] = await res.text();
+  }
+}
+
+async function loadPage(url){
+  const app = document.getElementById("app");
+  app.classList.add("loading");
+
+  if(!cache[url]){
+    await preload(url);
+  }
+
+  const html = cache[url];
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, "text/html");
+
+  setTimeout(() => {
+    app.innerHTML = doc.body.innerHTML;
+
+    // تشغيل السكربتات
+    const scripts = doc.querySelectorAll("script");
+    scripts.forEach(oldScript => {
+      const newScript = document.createElement("script");
+      if(oldScript.src){
+        newScript.src = oldScript.src;
+      } else {
+        newScript.textContent = oldScript.textContent;
+      }
+      document.body.appendChild(newScript);
+    });
+
+    app.classList.remove("loading");
+  }, 200);
+}
+
+// preload أولي
+preload('pages/page-01/index.html');
+
+loadPage('pages/page-01/index.html');
+</script>
+
+<script src="packages/pkg-001/loader.js"></script>
+<script>loadPackage("packages/pkg-001/manifest.json")</script>
+<script src="packages/pkg-001/loader.js"></script>
+<script>loadPackage("packages/pkg-001/manifest.json")</script>
+</body>
+</html>
