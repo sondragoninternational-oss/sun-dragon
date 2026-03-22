@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/sondragoninternational-oss/sun-dragon/issues"
   },
-  "homepage": "https://github.com/sondragoninternational-oss/sun-dragon#readme"
+  "homepage": "https://github.com/sondragoninternational-oss/sun-dragon#readme",
+  "dependencies": {
+    "@capacitor/android": "^8.2.0",
+    "@capacitor/cli": "^8.2.0",
+    "@capacitor/core": "^8.2.0"
+  }
 }

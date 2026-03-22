@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Sun Dragon</string>
+    <string name="title_activity_main">Sun Dragon</string>
+    <string name="package_name">com.sundragon.app</string>
+    <string name="custom_url_scheme">com.sundragon.app</string>
+</resources>
