@@ -1,0 +1,11 @@
+{
+  "name": "Starter Package",
+  "pages": [
+    "pages/page-01/index.html"
+  ],
+  "assets": [
+    "assets/images/sample.jpg",
+    "assets/videos/sample.mp4",
+    "assets/qr/sample.png"
+  ]
+}
