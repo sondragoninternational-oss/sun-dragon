@@ -16,7 +16,6 @@ body {
 
 .nav {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
   padding: 10px;
@@ -37,13 +36,19 @@ button:hover {
 
 #app {
   margin-top: 20px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.loading {
+  opacity: 0.3;
 }
 </style>
 </head>
 
 <body>
 
-<h1>🔥 Sun Dragon SPA+</h1>
+<h1>🔥 Sun Dragon PRO</h1>
 
 <div class="nav">
   <button onclick="loadPage('pages/page-01/index.html')">Page 1</button>
@@ -52,28 +57,49 @@ button:hover {
 <div id="app">Loading...</div>
 
 <script>
+const cache = {};
+
+async function preload(url){
+  if(!cache[url]){
+    const res = await fetch(url);
+    cache[url] = await res.text();
+  }
+}
+
 async function loadPage(url){
-  const res = await fetch(url);
-  const html = await res.text();
+  const app = document.getElementById("app");
+  app.classList.add("loading");
+
+  if(!cache[url]){
+    await preload(url);
+  }
+
+  const html = cache[url];
 
   const parser = new DOMParser();
   const doc = parser.parseFromString(html, "text/html");
 
-  const app = document.getElementById("app");
-  app.innerHTML = doc.body.innerHTML;
+  setTimeout(() => {
+    app.innerHTML = doc.body.innerHTML;
 
-  // تشغيل السكربتات داخل الصفحة
-  const scripts = doc.querySelectorAll("script");
-  scripts.forEach(oldScript => {
-    const newScript = document.createElement("script");
-    if(oldScript.src){
-      newScript.src = oldScript.src;
-    } else {
-      newScript.textContent = oldScript.textContent;
-    }
-    document.body.appendChild(newScript);
-  });
+    // تشغيل السكربتات
+    const scripts = doc.querySelectorAll("script");
+    scripts.forEach(oldScript => {
+      const newScript = document.createElement("script");
+      if(oldScript.src){
+        newScript.src = oldScript.src;
+      } else {
+        newScript.textContent = oldScript.textContent;
+      }
+      document.body.appendChild(newScript);
+    });
+
+    app.classList.remove("loading");
+  }, 200);
 }
+
+// preload أولي
+preload('pages/page-01/index.html');
 
 loadPage('pages/page-01/index.html');
 </script>
