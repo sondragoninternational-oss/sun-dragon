@@ -3,6 +3,6 @@
   "target": {
     "namespace": "android_app",
     "package_name": "com.sundragon.app",
-    "sha256_cert_fingerprints": ["00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00"]
+    "sha256_cert_fingerprints": ["E3:37:7B:1B:34:49:69:2A:2C:D6:94:90:87:10:E9:92:18:F5:DC:CC:3A:50:BD:48:8A:C1:C6:12:DE:70:4C:E4"]
   }
 }]
