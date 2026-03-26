@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Sun Dragon BYQ</string>
+    <string name="title_activity_main">Sun Dragon BYQ</string>
+    <string name="package_name">com.sundragon.byq</string>
+    <string name="custom_url_scheme">com.sundragon.byq</string>
+</resources>
